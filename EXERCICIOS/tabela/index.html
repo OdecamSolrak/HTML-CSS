@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela simples e Composta</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1{
+            text-decoration: underline;
+        }
+
+        table {
+            width: 500px;
+            height: 150px;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid black;
+            text-align: center;
+            
+        }
+
+        th.simples {
+            background-color: #a1a1a1;
+        }
+
+        thead, tfoot {
+            background-color: #a1a1a1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tabela simples:</h1>
+    <!--
+    HIERARQUIA DE TABELAS SIMPES:
+
+    table = tabela
+        table rows (tr)= linha de tabela
+            table header (th) = cabeçalho de tabela
+                table data (td) = dados de tabela
+    -->
+
+    <table>
+        <tr>
+            <th class="simples"></th>
+            <th class="simples">A</th>
+            <th class="simples">B</th>
+            <th class="simples">C</th>
+        </tr>
+        <tr>
+            <th class="simples">1</th>
+            <td>A1</td>
+            <td>B1</td>
+            <td>C1</td>
+        </tr>
+        <tr>
+            <th class="simples">2</th>
+            <td>A2</td>
+            <td>B2</td>
+            <td>C2</td>
+        </tr>
+        <tr>
+            <th class="simples">3</th>
+            <td>A3</td>
+            <td>B3</td>
+            <td>C3</td>
+        </tr>
+        <tr>
+            <th class="simples">4</th>
+            <td>A4</td>
+            <td>B4</td>
+            <td>C4</td>
+        </tr>
+    </table>
+
+    <h1>Tabela Composta:</h1>
+
+    <!--
+    HIERARQUIA DE TABELAS COMPOSTA:
+
+        TABLE
+            THEAD
+                tr, th, td
+            TBODY
+                tr, th, td
+            TFOOT
+                tr, th, td
+
+    -->
+    <table>
+        <thead>
+            <tr>
+                <th>País</th>
+                <th>População</th>
+            </tr>
+        </thead>
+        <tbody>
+            <td>Estados Unidos</td>
+            <td>346 353 341</td>
+            <tr>
+                <td>Brasil</td>
+                <td>203 493 629</td>
+            </tr>
+            <tr>
+                <td>Japão</td>
+                <td>124 127 899</td>
+            </tr>
+            <tr>
+                <td>Coreia do Sul</td>
+                <td>51 269 185</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Total</th>
+                <td>725.244.054</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
