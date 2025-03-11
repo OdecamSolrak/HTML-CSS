@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe</title>
+    <style>
+        h1.A1, h2, ul {
+            text-align: center;
+        }
+
+        iframe.B1 {
+            width: 90vw;
+            height: 350px;
+            display:;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Usando iframe</h1>
+
+    <!-- Tamanho padrão 300x150-->
+    <p>Acesse o site<iframe src="https://www.cursoemvideo.com/" frameborder="0"> <a href="https://www.cursoemvideo.com/" target="_blank">Curso em video</a></iframe> para aprender mais.</p>
+    <p>O site <iframe src="https://www.google.com/" frameborder="0"> <a href="https://www.google.com/" target="_blank">Google</a></iframe>  não permite iframe</p>
+    <h1>Paginas ou documentos internos:</h1>
+    <p>Acessando o site <iframe src="index/index.html" frameborder="0" width="600" height="300"></iframe></p> <br>
+    <h1 class="A1">Navegando no iframe</h1>
+    <ul>
+        <li><a href="index/index.html" target="frame">Primeira</a></li>
+        <li><a href="index/projeto1.html" target="frame">Segunda</a></li>
+        <li><a href="index/cordel.html" target="frame">Terceira</a></li>
+    </ul>
+    <h2>Painel</h2>
+    <iframe src="" frameborder="2" class="B1" name="frame"></iframe>
+</body>
+</html>

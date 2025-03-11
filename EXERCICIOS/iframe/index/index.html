@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela simples e Composta</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1{
+            text-decoration: underline;
+        }
+
+        table {
+            width: 500px;
+            height: 150px;
+            border-collapse: collapse;
+            position: relative;
+        }
+
+        /*
+        CABEÇALHO FIXO EM TABELAS GRANDES
+            Em TABLE{ position: relative;}
+            THEAD > TR > TH {position: sticky; e top: -1px; + backgroun}
+        */
+
+        thead > tr > th {
+            position: sticky;
+            top: -1px;
+            background-color: #a1a1a1;
+            
+        }
+
+        caption, td, th {
+            border: 1px solid black;
+            text-align: center;
+            
+        }
+
+        th.simples {
+            background-color: #a1a1a1;
+        }
+    
+        caption {
+            background-color: #d3d3d3;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        thead, tfoot {
+            background-color: #a1a1a1;
+        }
+
+        tbody.a > tr:nth-child(2n-1) { /* Efeito zebrado -> (2n) = de 2 em 2 faz a modificação podendo ser 3,4,5..., (odd) = impar, (even) = par*/
+            background-color: #d3d3d3;
+        }
+        table.exercicio {
+            width: 700px;
+            height: 250px;
+        }
+        thead.ex th {
+            background-color: #5e5e5e;
+        }
+
+        tbody.ex > tr > th {
+            background-color: #5e5e5e;
+        }
+        
+        td.N {
+            background-color: #5e5e5e;
+            font-weight: bold;
+        }
+
+        td.incor {
+            font-weight: bold;
+        }
+        th.at {
+            text-align: left;
+            padding-left: 20px;
+        }
+        tr.cor {
+            color: white;
+        }
+
+        div {
+            overflow-x: auto;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Tabela simples:</h1>
+    <!--
+    HIERARQUIA DE TABELAS SIMPES:
+
+    table = tabela
+        table rows (tr)= linha de tabela
+            table header (th) = cabeçalho de tabela
+                table data (td) = dados de tabela
+    -->
+
+    <table>
+        <caption>Exemplo</caption>
+        <tr>
+            <th class="simples"></th>
+            <th class="simples">A</th>
+            <th class="simples">B</th>
+            <th class="simples">C</th>
+        </tr>
+        <tr>
+            <th class="simples">1</th>
+            <td>A1</td>
+            <td>B1</td>
+            <td>C1</td>
+        </tr>
+        <tr>
+            <th class="simples">2</th>
+            <td>A2</td>
+            <td>B2</td>
+            <td>C2</td>
+        </tr>
+        <tr>
+            <th class="simples">3</th>
+            <td>A3</td>
+            <td>B3</td>
+            <td>C3</td>
+        </tr>
+        <tr>
+            <th class="simples">4</th>
+            <td>A4</td>
+            <td>B4</td>
+            <td>C4</td>
+        </tr>
+    </table>
+
+    <h1>Tabela Composta:</h1>
+
+    <!--
+    HIERARQUIA DE TABELAS COMPOSTA:
+
+        TABLE
+            CAPTION
+            THEAD
+                tr, th, td
+            TBODY
+                tr, th, td
+            TFOOT
+                tr, th, td
+
+    -->
+    <table>
+        <caption>Exemplo</caption>
+        <thead>
+            <tr>
+                <th scope="col">País</th>
+                <th scope="col">População</th>
+            </tr>
+        </thead>
+        <tbody class="a">
+            <td>Estados Unidos</td>
+            <td>346 353 341</td>
+            <tr>
+                <td>Brasil</td>
+                <td>203 493 629</td>
+            </tr>
+            <tr>
+                <td>Japão</td>
+                <td>124 127 899</td>
+            </tr>
+            <tr>
+                <td>Coreia do Sul</td>
+                <td>51 269 185</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th scope="row">Total</th>
+                <td>725.244.054</td>
+            </tr>
+        </tfoot>
+    </table>
+    <h1>Mesclagem de células:</h1>
+    <table>
+        <tr>
+            <th rowspan="4" scope="rowgroup">A</th>
+            <th colspan="2" scope="colgroup">B</th>
+            
+        </tr>
+        <tr>
+            
+            <td>C</td>
+            <td>D</td>
+        </tr>
+        <tr>
+            
+            <td>E</td>
+            <td>F</td>
+        </tr>
+        <tr>
+            
+            <td>G</td>
+            <td>H</td>
+        </tr>
+    </table>
+
+    <h1>exercício:</h1>
+
+    <div>
+        <table class="exercicio">
+            <thead class="ex">
+                <tr class="cor">
+                    <th rowspan="2" scope="col">Área</th>
+                    <th rowspan="2" scope="col">Disciplinas</th>
+                    <th colspan="2" scope="colgroup">Notas</th>
+                    <th rowspan="2" scope="col">Média</th>
+                </tr>
+                <tr class="cor">
+                    <th scope="col">Nota 1</th>
+                    <th scope="col">Nota 2</th>
+                </tr>
+            </thead>
+            <tbody class="ex">
+                <tr>
+                    <td rowspan="4" class="incor">Exatas</td>
+                    <td>Matemática</td>
+                    <td>0.0</td>
+                    <td>0.0</td>
+                    <td>0.0</td>
+                </tr>
+                <tr>
+                    <td>Física</td>
+                    <td>0.0</td>
+                    <td>0.0</td>
+                    <td>0.0</td>
+                </tr>
+                <tr>
+                    <td>Química</td>
+                    <td>0.0</td>
+                    <td>0.0</td>
+                    <td>0.0</td>
+                </tr>
+                <tr>
+                    <td>Biologia</td>
+                    <td>0.0</td>
+                    <td>0.0</td>
+                    <td>0.0</td>
+                </tr>
+                <tr class="cor">
+                    <th colspan="4" class="at" scope="row">Média de Exatas</th>
+                    <td class="N">0.0</td>
+                </tr>
+                <tr>
+                    <td rowspan="2" class="incor">Humanas</td>
+                    <td>História</td>
+                    <td>0.0</td>
+                    <td>0.0</td>
+                    <td>0.0</td>
+                </tr>
+                <tr>
+                    <td>Geografia</td>
+                    <td>0.0</td>
+                    <td>0.0</td>
+                    <td>0.0</td>
+                </tr>
+                <tr class="cor">
+                    <th colspan="4" class="at" scope="row">Média de Humanas</th>
+                    <td class="N">0.0</td>
+                </tr>
+            </tbody>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <h2>Texto Fictício</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus cupiditate asperiores sed quae temporibus dicta cumque? Ad facilis eveniet natus saepe adipisci itaque molestiae laboriosam rem reiciendis officia? Ab, odit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus asperiores veritatis consequuntur, laborum amet vel doloribus quibusdam minus enim, voluptas quaerat quam rerum magni suscipit, provident dolores ducimus reprehenderit quidem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur vitae animi eligendi ab consequatur molestiae accusantium repellendus omnis vel, quod praesentium fuga quaerat tempore ipsum! Quibusdam ut natus laborum itaque? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt rerum, numquam consequatur quas accusantium laborum earum harum quis non, pariatur, similique eveniet suscipit. Incidunt aliquid non minima dolorum, qui dolore. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat deserunt eligendi quasi, consectetur sit distinctio quam perspiciatis, similique eaque ducimus esse nesciunt atque, qui quaerat repellendus iusto id ipsam enim. Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores ipsam et vero mollitia enim pariatur quis nihil, aperiam reprehenderit eveniet sit illum, distinctio obcaecati esse laboriosam adipisci libero velit voluptatibus. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel aspernatur quos incidunt, nihil voluptatem tempore laborum magni illo? Quam, quasi necessitatibus voluptas deleniti optio soluta doloremque provident placeat suscipit nam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio earum delectus necessitatibus neque beatae eveniet blanditiis saepe autem veniam, eaque perferendis consectetur voluptatibus ullam ipsam qui molestiae quasi! Maxime, amet. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt corporis soluta recusandae voluptate? Enim sint eius voluptatibus ullam, explicabo, vel expedita minima itaque quibusdam tempore asperiores doloremque quaerat! Error, necessitatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Et maiores cum maxime suscipit omnis quas totam voluptate, impedit id saepe. Corporis neque quas nam ut maxime sint ad itaque consequuntur. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum, libero? Beatae rerum quidem, quam voluptate dolores asperiores vel officia voluptatem similique incidunt saepe, sit, est suscipit. Sit alias sapiente illo? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi incidunt consectetur dolor quas ipsam numquam enim cumque odit aperiam nisi sapiente dolore error fugit fugiat dignissimos reprehenderit, tempora dolorem optio? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem provident repudiandae, alias, minima nesciunt non facilis aliquam velit quo a laboriosam ipsum nemo blanditiis aperiam nam iusto ut itaque corrupti. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione voluptatum magni numquam, natus blanditiis cum doloremque qui quas sequi perspiciatis fugiat ad, rerum officiis mollitia quisquam velit libero eum error. Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur exercitationem mollitia dignissimos possimus placeat voluptatibus similique, soluta ad quidem reprehenderit numquam. Facere nostrum itaque, laborum voluptatem maxime sequi ipsum beatae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, vero, sapiente ducimus praesentium voluptate veritatis amet magnam accusamus quia neque delectus reprehenderit, atque a eaque totam soluta ullam! Maiores, ratione. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia amet exercitationem, ratione vel necessitatibus obcaecati vitae doloribus molestias? Quibusdam, minus odio? Doloribus non cum eum quisquam accusamus? Adipisci, in sed. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere aliquam impedit magnam sint consectetur repellat tempore, sed excepturi nobis cumque, laudantium dignissimos. Assumenda, officiis tempore eaque in possimus deserunt rerum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates officiis nihil excepturi possimus dignissimos sequi! Id vel eum debitis alias labore eius sit. Facere exercitationem aspernatur dolore nostrum labore recusandae? Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates accusamus ab eaque eius vero harum iste dolor neque, id laudantium unde doloremque ipsam officia eligendi nisi facilis quia sint quas. Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis libero magnam eligendi asperiores, magni in minima sed vero temporibus debitis vitae iure ex cupiditate mollitia rerum ducimus obcaecati. Deserunt, voluptatem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae facilis adipisci doloremque neque amet natus consectetur quam eius, veniam cumque qui id ad dicta accusantium similique beatae quia! Sapiente, maxime. Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet aspernatur sequi in corrupti fugiat cumque, quod nam animi vero debitis, beatae natus repellat nisi accusantium suscipit voluptates magnam laboriosam voluptas. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est quae nihil voluptatum nostrum eveniet suscipit ipsa delectus natus consequuntur distinctio, saepe repudiandae voluptatem nisi explicabo, eum laudantium? Aspernatur, sed id? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium, illum numquam nostrum harum hic iste. Impedit rem quam deleniti molestiae quos recusandae velit perspiciatis accusamus eum explicabo? Voluptate, totam corporis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, expedita dolorem exercitationem optio modi inventore non ipsum perferendis! Aut aliquid dolor natus, aperiam consectetur itaque odit vero cupiditate tenetur fuga? Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque tempore expedita necessitatibus! Iste inventore commodi officia beatae quisquam quia, eveniet praesentium officiis enim in consequatur quod unde ducimus assumenda quas.
+    </p>
+</body>
+</html>
