@@ -12,6 +12,7 @@ body, html{
 
 header{
     background-color: gray;
+    
 }
 
 header h1{
@@ -35,10 +36,12 @@ span#burg:hover{
 
 menu{
     display: none;
+    
 }
 
 menu ul{
     list-style-type: none;
+    
 }
 
 menu a{
@@ -46,9 +49,10 @@ menu a{
     padding: 10px;
     text-decoration: none;
     text-align: center;
-    background-color: rgb(97, 97, 97);
+    background-color: rgb(58, 58, 58);
     color: white;
     border-top: 2px solid gray;
+    border-radius: 10px 10px 0px 0px;
 }
 
 menu a:hover{
