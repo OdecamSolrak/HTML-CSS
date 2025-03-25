@@ -8,7 +8,7 @@
 }
 
 body, html {
-    background-color: rgb(255, 94, 0);
+    background-image: linear-gradient(to bottom, rgb(172, 34, 29) , rgb(255, 94, 0));
     width: 100vw;
     height: 100vh;
 }
