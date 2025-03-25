@@ -50,15 +50,18 @@ section#login > div#imagem {
 section#login > div#formulario {
     display: block;
     padding: 10px;
+    text-align: center;
 }
 
-div#formulario > h1 {
-    text-align: center;
+div#formulario > h1 { 
     margin-bottom: 20px;
     font-size: 30px;
 }
 
-div#formulario {
-    text-align: center;
-    
+div#formulario > p {
+    font-size: 1.3em;
+}
+
+div.entrar > input{
+   color: black;
 }

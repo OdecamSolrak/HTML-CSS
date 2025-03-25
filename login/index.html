@@ -21,18 +21,23 @@
 
                 <h1>Login</h1>
 
-                <p>Acessar conta:</p>
+                <p>Acesse sua conta:</p>
                 
                 <form action="login.php" method="post" autocomplete="on">
 
                     <div class="campo">
                         <label for="ilogin">Login:</label>
-                        <input type="email" name="login" id="ilogin" placeholder=" Seu e-mail.com" autocomplete="email">
+                        <input type="email" name="login" id="ilogin" placeholder=" Seu e-mail" autocomplete="email" required>
                     </div>
 
                     <div class="campo">
                         <label for="isenha">Senha:</label>
-                        <input type="password" name="senha" id="isenha" placeholder="Letras e números" autocomplete="current-password">
+                        <input type="password" name="senha" id="isenha" placeholder="Letras e números" autocomplete="current-password" required minlength="8" maxlength="20">
+                    </div>
+
+                    <div class="entrar">
+                        <input type="submit" value="Entrar"><br>
+                        <a href="esqueciasenha.html">Esqueci a senha</a>
                     </div>
 
                 </form>
