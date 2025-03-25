@@ -2,6 +2,7 @@
 
 * {
     font-family: 'Courier New', Courier, monospace;
+    color: white;
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
@@ -20,7 +21,7 @@ main {
 }
 
 section#login {
-    background-color: white;
+    background-color: black;
     width: 50%;
     height: 500px;
     border-radius: 20px;
