@@ -62,6 +62,12 @@ div#formulario > p {
     font-size: 1.3em;
 }
 
+div.campo > input {
+    color: black;
+    width: 50%;
+    height: 2em;
+}
+
 div.entrar > input{
    color: black;
 }
