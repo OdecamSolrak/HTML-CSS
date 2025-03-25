@@ -6,29 +6,41 @@
     <title>Login</title>
     <link rel="stylesheet" href="estilos/style.css">
     <link rel="stylesheet" href="estilos/media-queries.css">
+    
 </head>
+
 <body>
     
     <main>
+
         <section id="login">
-            <div id="imagem">
-                
-            </div>
+
+            <div id="imagem"></div>
+
             <div id="formulario">
+
                 <h1>Login</h1>
-                <p>Fazer login:</p>
-                <form action="login.php" method="post">
+
+                <p>Acessar conta:</p>
+                
+                <form action="login.php" method="post" autocomplete="on">
+
                     <div class="campo">
                         <label for="ilogin">Login:</label>
-                        <input type="email" name="login" id="ilogin" placeholder=" Seu e-mail.com">
+                        <input type="email" name="login" id="ilogin" placeholder=" Seu e-mail.com" autocomplete="email">
                     </div>
+
                     <div class="campo">
                         <label for="isenha">Senha:</label>
-                        <input type="password" name="senha" id="isenha" placeholder="Letras e números">
+                        <input type="password" name="senha" id="isenha" placeholder="Letras e números" autocomplete="current-password">
                     </div>
+
                 </form>
             </div>
+
         </section>
+
     </main>
+
 </body>
 </html>
