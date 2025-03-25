@@ -7,8 +7,9 @@
     box-sizing: border-box;
 }
 
-body {
+body, html {
     background-image: linear-gradient(to bottom, rgb(172, 34, 29) , rgb(255, 94, 0));
+    background-attachment: fixed;
     width: 100vw;
     height: 100vh;
 }
