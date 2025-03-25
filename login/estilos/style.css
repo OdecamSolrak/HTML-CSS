@@ -23,8 +23,8 @@ main {
 
 section#login {
     background-color: black;
-    width: 50%;
-    height: 90%;
+    width: 60%;
+    height: 500px;
     border-radius: 20px;
     position: absolute;
     top: 50%;
