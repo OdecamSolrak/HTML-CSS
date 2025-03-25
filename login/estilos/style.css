@@ -24,7 +24,7 @@ main {
 section#login {
     background-color: black;
     width: 60%;
-    height: 500px;
+    height: 550px;
     border-radius: 20px;
     position: absolute;
     top: 50%;
@@ -62,10 +62,6 @@ div#formulario > p {
     font-size: 1.3em;
 }
 
-div.campo {
-    margin: 10px;
-    height: 30px;
-}
 
 div.campo > input {
     color: black;
