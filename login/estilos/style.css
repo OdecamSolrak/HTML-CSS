@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 
-body, html {
+body {
     background-image: linear-gradient(to bottom, rgb(172, 34, 29) , rgb(255, 94, 0));
     width: 100vw;
     height: 100vh;
@@ -47,4 +47,9 @@ section#login > div#imagem {
 section#login > div#formulario {
     display: block;
     padding: 10px;
+}
+
+div#formulario > h1 {
+    text-align: center;
+    margin-bottom: 20px;
 }
