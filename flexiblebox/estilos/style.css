@@ -1,22 +1,25 @@
 @charset "utf-8";
 
 * {
-    margin: ;
-    padding: ;
+    margin: 0px;
+    padding: 0px; 
 }
 
-html, body {}
+body {
+    background-color: aquamarine;
+}
 
 div.conteiner {
     display: flex;
     /*flex-direction: row;
-    flex-wrap: wrap;*/
-    flex-flow: row wrap;/*<=*/
+    flex-wrap: nowrap;*/
+    flex-flow: row nowrap;/*<=*/
     justify-content: space-around;
-    align-items: stretch;
+    align-items: center;
+    align-content: ;
     background-color: gray;
-    border: 1px solid black;
-    height: 200px;
+    height: 80vh;
+    width: 100vw;
     
 }
 
@@ -25,5 +28,42 @@ div.item {
     background-color: yellow;
     border: 1px solid black;
     text-align: center;
+    padding: 10px;
     
+    /* flex: 0 1 auto */
+    flex-grow: 0; /* Valor "0" o item não pode crescer, valor "1" o item pode crescer */
+    flex-shrink: 1; /* Valor "1" o item pode encolher, valor "0" o item não pode encolher */
+    flex-basis: 200px;
+    /* Valores "1,2,3,4,etc. são multiplos de "1" (no sentido do eixo "main-axis") */
+}
+
+div#i1 {
+    order: 5;
+    align-self: center;
+}
+div#i2 {
+    order: 3;
+    align-self: flex-start;
+}
+div#i3 {
+    order: 0;
+    align-self: ;
+}
+div#i4 {
+    order: -6;
+    align-self: stretch;
+    flex-shrink: ;
+    flex-grow: 2;
+}
+div#i5 {
+    order: 8;
+    align-self: ;
+}
+div#i6 {
+    order: -3;
+    align-self: flex-end;
+}
+div#i7 {
+    order: 0;
+    align-self: ;
 }
