@@ -1,6 +1,7 @@
 @charset "utf-8";
 
 @media screen and (max-width: 650px) {
+
     header {
         justify-content: center;
     }
@@ -15,4 +16,8 @@
     nav > a {
         border-radius: 10px;
     }
+}
+
+main {
+    width: 90vw;
 }
