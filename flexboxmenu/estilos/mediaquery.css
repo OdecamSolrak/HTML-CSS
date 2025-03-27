@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+@media screen and (max-width: 650px) {
+    header {
+        justify-content: center;
+    }
+    
+    header > nav {
+        flex-flow: column nowrap;
+        justify-content: flex-end;
+        flex: 1 1 90vw;
+
+    }
+
+    nav > a {
+        border-radius: 10px;
+    }
+}
