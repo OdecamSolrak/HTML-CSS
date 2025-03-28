@@ -42,14 +42,10 @@ article.texto-midia {
 
 article > div.texto {
     flex: 1 1 500px;
-
-    border: 2px dashed blue;
 }
 
 article > div.midia {
     flex: 1 1 auto;
-
-    border: 2px dashed red;
 }
 
 article > div.midia > img {
@@ -61,20 +57,16 @@ article > div.midia > img {
 
 article > div.midia > iframe {
     display: block;
-    margin: auto;
-    
-    
+    margin: auto;    
 }
 
-@media screen  and (max-width: 620px) {
+@media screen  and (max-width: 620px) and (min-width: 532px) {
     article > div.midia > img {
         width: 100%;
-        margin: 0px;
         
     }
     article > div.midia > iframe {
         width: 100%;
-        margin: 0px;
         
     }
 }
@@ -82,11 +74,12 @@ article > div.midia > iframe {
 @media screen and (max-width: 532px) {
     article > div.midia > img {
         width: 89%;
-        margin: 0px;
+        
     }
     article > div.midia > iframe {
-        width: 89%;
-        margin: 0px;
+        width: 90%;
+        
+        
     }
    
 }
