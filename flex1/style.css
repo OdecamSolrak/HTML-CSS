@@ -73,13 +73,13 @@ article > div.midia > iframe {
 
 @media screen and (max-width: 532px) {
     article > div.midia > img {
-        width: 89%;
+        width: 100%;
         
     }
     article > div.midia > iframe {
-        width: 90%;
-        
-        
+        width: 280px;
+        height: 157px;
+      
     }
    
 }
