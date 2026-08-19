@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gráfico de Barras</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 95%;
+            max-width: 900px;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .controles {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        select {
+            width: 100px;
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid #aaa;
+            border-radius: 6px;
+        }
+
+        button {
+            padding: 10px 18px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .adicionar {
+            background: #2196f3;
+            color: white;
+        }
+
+        .limpar {
+            background: #f44336;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        .grafico-area {
+            display: flex;
+            height: 400px;
+            border-bottom: 2px solid #333;
+            border-left: 2px solid #333;
+            position: relative;
+            overflow-x: auto;
+            padding-left: 45px;
+        }
+
+        .escala {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 0 8px;
+        }
+
+        .escala span {
+            font-size: 13px;
+            text-align: right;
+        }
+
+        .barras {
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+            height: 100%;
+            padding: 10px;
+            min-width: calc(100% - 45px);
+        }
+
+        .barra {
+            width: 35px;
+            min-width: 35px;
+            background: #2196f3;
+            border-radius: 4px 4px 0 0;
+            position: relative;
+            transition: height 0.2s;
+        }
+
+        .barra:hover {
+            background: #1976d2;
+        }
+
+        .valor {
+            position: absolute;
+            top: -22px;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .numero {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .mensagem {
+            text-align: center;
+            color: #777;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Gráfico de Barras</h1>
+
+    <div class="controles">
+
+        <select id="valor">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+        </select>
+
+        <button class="adicionar" onclick="adicionarBarra()">
+            Adicionar
+        </button>
+
+        <button class="limpar" onclick="limparGrafico()">
+            Limpar
+        </button>
+
+    </div>
+
+    <div class="grafico-area">
+
+        <div class="escala">
+            <span>8</span>
+            <span>7</span>
+            <span>6</span>
+            <span>5</span>
+            <span>4</span>
+            <span>3</span>
+            <span>2</span>
+            <span>1</span>
+            <span>0</span>
+        </div>
+
+        <div id="barras" class="barras"></div>
+
+    </div>
+
+    <div id="mensagem" class="mensagem">
+        Nenhuma barra adicionada.
+    </div>
+
+</div>
+
+<script>
+
+    const valores = [];
+
+    function adicionarBarra() {
+
+        const select = document.getElementById("valor");
+
+        const valor = Number(select.value);
+
+        valores.push(valor);
+
+        desenharGrafico();
+    }
+
+
+    function desenharGrafico() {
+
+        const container = document.getElementById("barras");
+
+        const mensagem = document.getElementById("mensagem");
+
+        container.innerHTML = "";
+
+        if (valores.length === 0) {
+
+            mensagem.textContent = "Nenhuma barra adicionada.";
+
+            return;
+        }
+
+        mensagem.textContent =
+            "Total de barras: " + valores.length;
+
+
+        valores.forEach((valor, indice) => {
+
+            const grupo = document.createElement("div");
+
+            grupo.style.display = "flex";
+            grupo.style.flexDirection = "column";
+            grupo.style.alignItems = "center";
+            grupo.style.justifyContent = "flex-end";
+            grupo.style.height = "100%";
+
+
+            const barra = document.createElement("div");
+
+            barra.classList.add("barra");
+
+
+            /*
+                O gráfico possui altura máxima 8.
+
+                Cada unidade corresponde a:
+                100% / 8 = 12,5%
+            */
+           
+            if (valor >= 3) {
+                barra.style.background = "green";
+            } else {
+                barra.style.background = "red";
+            }
+
+            const altura = (valor / 8) * 100;
+
+            barra.style.height = altura + "%";
+
+
+            const textoValor = document.createElement("div");
+
+            textoValor.classList.add("valor");
+
+            textoValor.textContent = valor;
+
+
+            barra.appendChild(textoValor);
+
+
+            const numero = document.createElement("div");
+
+            numero.classList.add("numero");
+
+            numero.textContent = indice + 1;
+
+
+            grupo.appendChild(barra);
+
+            grupo.appendChild(numero);
+
+            container.appendChild(grupo);
+
+        });
+
+    }
+
+
+    function limparGrafico() {
+
+        valores.length = 0;
+
+        desenharGrafico();
+
+    }
+
+</script>
+
+</body>
+</html>
